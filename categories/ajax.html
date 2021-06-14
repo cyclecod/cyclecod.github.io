@@ -58,6 +58,7 @@
 
 
 
+
 &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.png&quot;&gt;
 </code></pre>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
@@ -119,9 +120,7 @@
   </div>
   <div class="article-inner">
 
-<p>​<br>    <div class="e-content article-entry" itemprop="articleBody"></p>
-<pre><code>    &lt;h1 id=&quot;1全局刷新和局部刷新&quot;&gt;&lt;a href=&quot;#1全局刷新和局部刷新&quot; class=&quot;headerlink&quot; title=&quot;1全局刷新和局部刷新&quot;&gt;&lt;/a&gt;1全局刷新和局部刷新&lt;/h1&gt;&lt;ol&gt;
-</code></pre>
+<p>​<br>​    <div class="e-content article-entry" itemprop="articleBody"><br>​<br>        <h1 id="1全局刷新和局部刷新"><a href="#1全局刷新和局部刷新" class="headerlink" title="1全局刷新和局部刷新"></a>1全局刷新和局部刷新</h1><ol></p>
 <li><p>全局刷新：使用form，href等发起的请求是全局刷新</p>
 <p>用户发起请求，试图改变，跳转视图，使用新的数据添加到页面</p>
 <p>缺点：</p>
@@ -132,6 +131,7 @@
 </ol>
 </li>
 <li><p>局部刷新：在当前页面中，发起请求，获取数据，更新当前页面的dom对象，对试图部分刷新</p>
+
 <p>特点：</p>
 <ol>
 <li>数量比较小，在网络中传输速度快</li>
@@ -162,14 +162,17 @@
 <p>Ajax的核心是JavaScript和XML（json）：使用JavaScript操作异步对象XMLHttpRequest，和服务器交换使用json数据格式</p>
 <h1 id="5-异步对象XMLHttpRequest属性和方法"><a href="#5-异步对象XMLHttpRequest属性和方法" class="headerlink" title="5.异步对象XMLHttpRequest属性和方法"></a>5.异步对象XMLHttpRequest属性和方法</h1><ol>
 <li><p>创建异步对象，使用js的语法</p>
+
 <p>let xhr = new XMLHttpRequest();</p>
 </li>
 <li><p>XMLHttpRequest方法</p>
+
 <p>①open(请求方式,服务器端的访问地址,异步还是同步)</p>
 <p>例如：xhr.open(“get”,”loginServlet”,true)</p>
 <p>②send():使用异步对象发送请求</p>
 </li>
 <li><p>XMLHttpRequest属性</p>
+
 <p>readyState属性：请求的状态</p>
 <p>​    0：表示创建异步对象时：new XMLHttpRequest();</p>
 <p>​    1：表示初始异步对象的请求参数，执行open()方法</p>
@@ -183,10 +186,13 @@
 <p>responseText属性：表示服务器端返回的数据</p>
 <p>​    例如：let data = xhr.responseText;</p>
 <h1 id="6-异步对象XMLHttpRequest使用步骤"><a href="#6-异步对象XMLHttpRequest使用步骤" class="headerlink" title="6.异步对象XMLHttpRequest使用步骤"></a>6.异步对象XMLHttpRequest使用步骤</h1><ol>
+
 <li><p>使用js创建异步对象</p>
+
 <p>let xhr = new XMLHttpResquest</p>
 </li>
 <li><p>给异步对象绑定事件，事件名称 onreadystatechange</p>
+
 <p>例如button增加单击事件onclick</p>
 <p>xhr绑定事件</p>
 <p>xhr.onreadystatechange = function() {   当事件发生时执行的代码  }</p>
@@ -203,7 +209,7 @@
 &lt;footer class=&quot;article-footer&quot;&gt;
   &lt;a data-url=&quot;https://cyclecod.github.io/2021/06/14/Ajax/&quot; data-id=&quot;ckpwirrlf00009svhf7fqh8ky&quot; data-title=&quot;&quot; class=&quot;article-share-link&quot;&gt;分享&lt;/a&gt;
 </code></pre>
-<p>​<br>​<br>    </footer><br>  </div></p>
+<p>​<br>​<br>​    </footer><br>  </div></p>
 <nav id="article-nav">
   
 
