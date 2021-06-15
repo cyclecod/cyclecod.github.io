@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ajax</title>
+    <url>/2021/06/15/2014-12-22-categories/</url>
+    <content><![CDATA[<h1 id="1-全局刷新和局部刷新"><a href="#1-全局刷新和局部刷新" class="headerlink" title="1.全局刷新和局部刷新"></a>1.全局刷新和局部刷新</h1><ol>
+<li><p>全局刷新：用户发起请求，试图改变，跳转视图，使用新的数据添加到页面</p>
+<p>缺点：</p>
+<ol>
+<li>传递数据量比较大。占用网络的带宽</li>
+<li>浏览器需要重新的渲染整个页面</li>
+<li>用户体验不是那么好</li>
+</ol>
+</li>
+<li><p> 局部刷新：在当前页面中，发起请求，获取数据，更新当前页面的dom对象，对试图部分刷新</p>
+</li>
+</ol>
+<p>   特点：</p>
+<ol>
+<li>数量比较小，在网络中传输速度快</li>
+<li>更新页面内容，是部分跟新页面，浏览器不用全部渲染试图</li>
+<li>在一个页面中，可以做多个 局部刷新</li>
+<li>从服务器获取的是数据，拿到跟新视图</li>
+</ol>
+<h1 id="2-异步请求对象"><a href="#2-异步请求对象" class="headerlink" title="2.异步请求对象"></a>2.异步请求对象</h1><p>   在局部刷新中，使用异步请求对象，在浏览器内部发起请求，获取数据</p>
+<p>   异步对象是在浏览器内部的一种JavaScript对象，各大浏览器都能支持异步对象的使用</p>
+<p>   异步对象：XMLHttpRequest</p>
+<h1 id="3-异步对象XMLHttpRequest接收"><a href="#3-异步对象XMLHttpRequest接收" class="headerlink" title="3.异步对象XMLHttpRequest接收"></a>3.异步对象XMLHttpRequest接收</h1><p>   s中的一种对象，使用js语法创建和使用这个对象</p>
+<p>   et xhr = new  XMLHttpRequest();</p>
+<p>   之后就可以使用xhr对象的属性和函数，进行异步对象的操作</p>
+<p>   使用异步对象实现局部刷新：异步对象主要负责发起请求，传递请求的参数，并从服务器接收数据</p>
+<p>   局部刷新需要使用那些技术：</p>
+<ol>
+<li>javascript:创建XMLHttpRequest对象，调用它的属性和方法</li>
+<li>dom：处理dom，更新页面数据</li>
+<li>servlet：服务器端技术</li>
+<li>数据格式：json，他之前是xml</li>
+</ol>
+<p>   把上面这些技术的综合使用叫做Ajax（阿贾克斯）</p>
+<h1 id="4-Ajax"><a href="#4-Ajax" class="headerlink" title="4.Ajax"></a>4.Ajax</h1><p>Ajax=Asynchronous JavaScript and XML （异步的JavaScript和XML）<br>Ajax是一种在无需重新加载整个页面的情况下，能够跟新出部分页面内容的新方法<br>Ajax不是一种新的编程语言<br>使用Ajax实现局部刷新<br>Ajax的核心是JavaScript和XML（json）：使用JavaScript操作异步对象XMLHttpRequest，和服务器交换使用json数据格式</p>
+<h1 id="5-异步对象XMLHttpRequest属性和方法"><a href="#5-异步对象XMLHttpRequest属性和方法" class="headerlink" title="5.异步对象XMLHttpRequest属性和方法"></a>5.异步对象XMLHttpRequest属性和方法</h1><ol>
+<li><p>创建异步对象，使用js的语法</p>
+<p>let xhr = new XMLHttpRequest();</p>
+</li>
+<li><p> XMLHttpRequest方法</p>
+</li>
+</ol>
+<p>   ①open(请求方式,服务器端的访问地址,异步还是同步)<br>   例如：xhr.open(“get”,”loginServlet”,true)<br>   ②send():使用异步对象发送请求</p>
+<ol start="3">
+<li><p>XMLHttpRequest属性</p>
+<p>readyState属性：请求的状态</p>
+<p>​    0：表示创建异步对象时：new XMLHttpRequest();</p>
+<p>​    1：表示初始异步对象的请求参数，执行open()方法</p>
+<p>​     2：使用send()方法发送请求。</p>
+<p>​     3：使用异步对象从服务器接收了数据</p>
+<p>​     4：异步对象接收了数据，并在异步对象内部处理完成后</p>
+<p>status属性：</p>
+<p>​    200：请求成功</p>
+<p>​     404：服务器资源没用找到</p>
+<p>​    500：服务器内部代码有错误</p>
+<p>responseText属性：表示服务器端返回的数据</p>
+<p>​     例如：let data = xhr.responseText;</p>
+</li>
+</ol>
+<h1 id="6-异步对象XMLHttpRequest使用步骤"><a href="#6-异步对象XMLHttpRequest使用步骤" class="headerlink" title="6.异步对象XMLHttpRequest使用步骤"></a>6.异步对象XMLHttpRequest使用步骤</h1><ol>
+<li><p>使用js创建异步对象</p>
+<p>let xhr = new XMLHttpResquest</p>
+</li>
+<li><p>给异步对象绑定事件，事件名称 onreadystatechange</p>
+<p>例如button增加单击事件onclick</p>
+<p>xhr绑定事件</p>
+<p>xhr.onreadystatechange = function() {   当事件发生时执行的代码  }</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">&quot;#btn&quot;</span>)</span></span><br><span class="line"><span class="javascript">        btn.onclick(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest;</span></span><br><span class="line"><span class="javascript">            xhr.open(<span class="string">&quot;get&quot;</span>,<span class="string">&quot;loginServlet&quot;</span>,<span class="literal">true</span>)</span></span><br><span class="line"><span class="javascript">            xhr.send();</span></span><br><span class="line"><span class="javascript">            xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; status == <span class="number">200</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">let</span> data = xhr.responseText</span></span><br><span class="line"><span class="javascript">                    </span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;)</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/06/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
