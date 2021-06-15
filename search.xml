@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Ajax</title>
-    <url>/2021/06/15/2014-12-22-categories/</url>
+    <url>/2021/06/15/Ajax/</url>
     <content><![CDATA[<h1 id="1-全局刷新和局部刷新"><a href="#1-全局刷新和局部刷新" class="headerlink" title="1.全局刷新和局部刷新"></a>1.全局刷新和局部刷新</h1><ol>
 <li><p>全局刷新：用户发起请求，试图改变，跳转视图，使用新的数据添加到页面</p>
 <p>缺点：</p>
