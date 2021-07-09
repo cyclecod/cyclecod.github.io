@@ -255,8 +255,41 @@ int a;
 </li>
 </ol>
 </li>
+<li>final关键字<ol>
+<li>final修饰的属性又叫常量，一般用xx_xx_xx来命名</li>
+<li>final修饰的属性在定义时，必须赋初值，并且以后不能再修改，赋值可以在如下几个位置之一<ol>
+<li>定义时：如 public final double TAX_RATE=0.8;</li>
+<li>在构造器中</li>
+<li>在代码块中</li>
 </ol>
 </li>
+<li>如果final修饰的属性是静态的，则初始化的位置只能是<ol>
+<li>定义时</li>
+<li>在静态代码块，不能再构造器中赋值</li>
+</ol>
+</li>
+<li>final类不能被继承，但是可以实例化对象</li>
+<li>如果类不是final类，但是含有final方法，则该方法虽然不能重写，但是可以被继承</li>
+<li>一般来说，如果一个类已经是final类，就没有必要再将方法修饰成final方法</li>
+<li>final不能修饰构造方法</li>
+<li>final和static往往搭配使用，效率更高，不会导致类加载，底层编译器做了优化处理</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="10-内部类"><a href="#10-内部类" class="headerlink" title="10.内部类"></a>10.内部类</h1><ol>
+<li>局部内部类：说明：定义在外部类的局部位置，比如方法中，并且有类名<ol>
+<li>可以直接访问外部类的所有成员，包含私有的</li>
+<li>不能添加访问修饰符，因为他的地位就是一个局部变量，局部变量是不能使用修饰符的，但是可以使用final修饰，因为局部变量也可以使用final</li>
+<li>作用域：仅仅在定义它的方法或代码块中</li>
+<li>外部类访问局部内部类的成员：先创建对象，在访问</li>
+</ol>
+</li>
+<li>匿名内部类：说明：定义在外部类的局部位置，比如方法中，没有类名<ol>
+<li>基本语法：new 类或接口(参数列表){类体}</li>
 </ol>
 </li>
 </ol>
@@ -295,7 +328,7 @@ int a;
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1.变量的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2.数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">3.基本数据类型转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">4.</span> <span class="toc-text">4.标识符命名规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">5.类与对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E9%80%92%E5%BD%92"><span class="toc-number">6.</span> <span class="toc-text">6.递归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">7.可变参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E6%9E%84%E9%80%A0%E5%99%A8-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">8.构造器&#x2F;构造方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="toc-number">9.</span> <span class="toc-text">9.面向对象的三大特征</span></a></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1.变量的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2.数据类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">3.基本数据类型转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%A0%87%E8%AF%86%E7%AC%A6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">4.</span> <span class="toc-text">4.标识符命名规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">5.</span> <span class="toc-text">5.类与对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E9%80%92%E5%BD%92"><span class="toc-number">6.</span> <span class="toc-text">6.递归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">7.可变参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E6%9E%84%E9%80%A0%E5%99%A8-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">8.构造器&#x2F;构造方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="toc-number">9.</span> <span class="toc-text">9.面向对象的三大特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">10.</span> <span class="toc-text">10.内部类</span></a></li></ol>	
         </div>
     
 </div>

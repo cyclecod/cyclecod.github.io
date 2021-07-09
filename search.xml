@@ -281,8 +281,41 @@
 </li>
 </ol>
 </li>
+<li>final关键字<ol>
+<li>final修饰的属性又叫常量，一般用xx_xx_xx来命名</li>
+<li>final修饰的属性在定义时，必须赋初值，并且以后不能再修改，赋值可以在如下几个位置之一<ol>
+<li>定义时：如 public final double TAX_RATE=0.8;</li>
+<li>在构造器中</li>
+<li>在代码块中</li>
 </ol>
 </li>
+<li>如果final修饰的属性是静态的，则初始化的位置只能是<ol>
+<li>定义时</li>
+<li>在静态代码块，不能再构造器中赋值</li>
+</ol>
+</li>
+<li>final类不能被继承，但是可以实例化对象</li>
+<li>如果类不是final类，但是含有final方法，则该方法虽然不能重写，但是可以被继承</li>
+<li>一般来说，如果一个类已经是final类，就没有必要再将方法修饰成final方法</li>
+<li>final不能修饰构造方法</li>
+<li>final和static往往搭配使用，效率更高，不会导致类加载，底层编译器做了优化处理</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="10-内部类"><a href="#10-内部类" class="headerlink" title="10.内部类"></a>10.内部类</h1><ol>
+<li>局部内部类：说明：定义在外部类的局部位置，比如方法中，并且有类名<ol>
+<li>可以直接访问外部类的所有成员，包含私有的</li>
+<li>不能添加访问修饰符，因为他的地位就是一个局部变量，局部变量是不能使用修饰符的，但是可以使用final修饰，因为局部变量也可以使用final</li>
+<li>作用域：仅仅在定义它的方法或代码块中</li>
+<li>外部类访问局部内部类的成员：先创建对象，在访问</li>
+</ol>
+</li>
+<li>匿名内部类：说明：定义在外部类的局部位置，比如方法中，没有类名<ol>
+<li>基本语法：new 类或接口(参数列表){类体}</li>
 </ol>
 </li>
 </ol>
@@ -290,6 +323,65 @@
       <categories>
         <category>Java</category>
         <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式</title>
+    <url>/2021/07/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><ol>
+<li><p>所谓类的单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对实例的方法</p>
+</li>
+<li><p>单例模式有两种方式</p>
+<ol>
+<li><p>饿汉式</p>
+<ol>
+<li><p>构造器私有化</p>
+</li>
+<li><p>类的内部创建对象</p>
+</li>
+<li><p>向外暴露一个静态的公共方法</p>
+</li>
+<li><p>代码实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="comment">//先创建好这个类实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>懒汉式</p>
+<ol>
+<li><pre><code class="java">public class Singleton01 &#123;
+    //将构造器私有化，防止直接new
+    private Singleton01()&#123;&#125;
+    //提供一个静态属性类型就是Singleton
+    private static Singleton01 instance;
+    //提供一个public的静态方法，可以返回instance
+    public static Singleton01 getInstance()&#123;
+        if (instance == null)&#123;
+            instance = new Singleton01();
+        &#125;
+        return instance;
+    &#125;
+&#125;
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>两者最大的区别在于创建对象的时机不同：饿汉式是在类加载的时候就创建了对象实例，而懒汉式只有在用的时候才创建</p>
+</li>
+<li><p>饿汉式不存在线程安全问题，懒汉式存在线程安全问题</p>
+</li>
+<li><p>饿汉式存在资源浪费的可能。因为如果一个程序员一个对象实例都没有使用，那么饿汉式创建的对象就浪费了，懒汉式是使用时才创建，就不存在这个问题</p>
+</li>
+<li><p>在JavaSE标准类中，Java.long.Runtime就是经典的单例模式</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>设计模式</category>
       </categories>
       <tags>
         <tag>Java</tag>
