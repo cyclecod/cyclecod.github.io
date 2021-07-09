@@ -87,48 +87,6 @@
       </tags>
   </entry>
   <entry>
-    <title>设计模式</title>
-    <url>/2021/07/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><ol>
-<li><p>所谓类的单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对实例的方法</p>
-</li>
-<li><p>单例模式有两种方式</p>
-<ol>
-<li><p>饿汉式</p>
-<ol>
-<li><p>构造器私有化</p>
-</li>
-<li><p>类的内部创建对象</p>
-</li>
-<li><p>向外暴露一个静态的公共方法</p>
-</li>
-<li><p>代码实现</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="comment">//先创建好这个类实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>懒汉式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton01</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton01</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton01 instance;</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton01 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton01();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>两者最大的区别在于创建对象的时机不同：饿汉式是在类加载的时候就创建了对象实例，而懒汉式只有在用的时候才创建</p>
-</li>
-<li><p>饿汉式不存在线程安全问题，懒汉式存在线程安全问题</p>
-</li>
-<li><p>饿汉式存在资源浪费的可能。因为如果一个程序员一个对象实例都没有使用，那么饿汉式创建的对象就浪费了，懒汉式是使用时才创建，就不存在这个问题</p>
-</li>
-<li><p>在JavaSE标准类中，Java.long.Runtime就是经典的单例模式</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-        <category>设计模式</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java基础</title>
     <url>/2021/06/26/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="1-变量的概念"><a href="#1-变量的概念" class="headerlink" title="1.变量的概念"></a>1.变量的概念</h1><ol>
@@ -365,6 +323,52 @@
       <categories>
         <category>Java</category>
         <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式</title>
+    <url>/2021/07/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><ol>
+<li><p>所谓类的单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对实例的方法</p>
+</li>
+<li><p>单例模式有两种方式</p>
+<ol>
+<li><p>饿汉式</p>
+<ol>
+<li><p>构造器私有化</p>
+</li>
+<li><p>类的内部创建对象</p>
+</li>
+<li><p>向外暴露一个静态的公共方法</p>
+</li>
+<li><p>代码实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="comment">//先创建好这个类实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>懒汉式</p>
+<ol>
+<li><p>代码实现 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton01</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton01</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton01 instance;</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton01 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton01();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>两者最大的区别在于创建对象的时机不同：饿汉式是在类加载的时候就创建了对象实例，而懒汉式只有在用的时候才创建</p>
+</li>
+<li><p>饿汉式不存在线程安全问题，懒汉式存在线程安全问题</p>
+</li>
+<li><p>饿汉式存在资源浪费的可能。因为如果一个程序员一个对象实例都没有使用，那么饿汉式创建的对象就浪费了，懒汉式是使用时才创建，就不存在这个问题</p>
+</li>
+<li><p>在JavaSE标准类中，Java.long.Runtime就是经典的单例模式</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+        <category>设计模式</category>
       </categories>
       <tags>
         <tag>Java</tag>

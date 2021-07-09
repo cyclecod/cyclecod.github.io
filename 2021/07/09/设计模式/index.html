@@ -81,7 +81,11 @@
 </ol>
 </li>
 <li><p>懒汉式</p>
+<ol>
+<li><p>代码实现 </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton01</span> </span>&#123;</span><br><span class="line">    <span class="comment">//将构造器私有化，防止直接new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton01</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="comment">//提供一个静态属性类型就是Singleton</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton01 instance;</span><br><span class="line">    <span class="comment">//提供一个public的静态方法，可以返回instance</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton01 <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton01();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
 </ol>
 </li>
 <li><p>两者最大的区别在于创建对象的时机不同：饿汉式是在类加载的时候就创建了对象实例，而懒汉式只有在用的时候才创建</p>
